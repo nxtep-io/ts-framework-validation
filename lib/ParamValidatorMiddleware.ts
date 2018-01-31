@@ -15,14 +15,11 @@ export default class ParamValidatorMiddleware {
   options: ParamValidatorMiddlewareOptions;
 
   constructor(protected param: string, protected filter: ParamValidator, options = {}) {
-    this.options = {
-      message: (param: string) => `Invalid field: ${param}`,
-      ...options,
-    };
+    this.options = { message: (param: string) => `Invalid field: ${param}`, ...options };
   }
 
   /**
-   * Returns the Express midleware for a Param validator.
+   * Returns the Express midleware for a Para˜`m validator.
    * 
    * @param req The express request
    * @param res The express response
@@ -30,7 +27,7 @@ export default class ParamValidatorMiddleware {
    */
   async middleware(req, res, next) {
     try {
-      if (!this.filter(req.param(this.param))) {
+      if (!await this.filter(req.param(this.param))) {
         res.error(new HttpError(this.options.message(this.param), HttpCode.Client.BAD_REQUEST));
       } else {
         next();
@@ -39,5 +36,5 @@ export default class ParamValidatorMiddleware {
       res.error(HttpCode.Client.BAD_REQUEST, exception);
     }
   }
-  
+
 }

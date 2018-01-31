@@ -1,6 +1,7 @@
 import isValidId from './isValidId';
 import isValidName from './isValidName';
 import isValidEmail from './isValidEmail';
+import isValidUsername from './isValidUsername';
 import isValidPassword from './isValidPassword';
 import { ParamValidator, ParamValidatorMiddleware } from 'index';
 
@@ -13,5 +14,6 @@ export default {
   isValidId,
   isValidName,
   isValidEmail,
+  isValidUsername,
   isValidPassword,
 };

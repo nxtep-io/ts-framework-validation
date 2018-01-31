@@ -21,6 +21,16 @@ export default class Validate {
   }
 
   /**
+   * Gets an Express middleware for a param validation.
+   * 
+   * @param param The param name to be validated
+   * @param validator The ParamValidator instance
+   */
+  public static middleware(param: string, validator: ParamValidator) {
+    return async (req, res, next) => new ParamValidatorMiddleware(param, validator).middleware(req, res, next);
+  }
+
+  /**
    * Runs a map of params validations.
    * 
    * @param param The value to be validated
