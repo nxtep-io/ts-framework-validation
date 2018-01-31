@@ -14,7 +14,7 @@ export default class ParamValidatorMiddleware {
     options: ParamValidatorMiddlewareOptions;
     constructor(param: string, filter: ParamValidator, options?: {});
     /**
-     * Returns the Express midleware for a Param validator.
+     * Returns the Express midleware for a Para˜`m validator.
      *
      * @param req The express request
      * @param res The express response

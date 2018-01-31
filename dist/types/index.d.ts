@@ -17,6 +17,13 @@ export default class Validate {
      */
     static param(param: any, validator: ParamValidator): Promise<Boolean>;
     /**
+     * Gets an Express middleware for a param validation.
+     *
+     * @param param The param name to be validated
+     * @param validator The ParamValidator instance
+     */
+    static middleware(param: string, validator: ParamValidator): (req: any, res: any, next: any) => Promise<void>;
+    /**
      * Runs a map of params validations.
      *
      * @param param The value to be validated
