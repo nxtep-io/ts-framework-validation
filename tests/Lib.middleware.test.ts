@@ -42,7 +42,7 @@ describe('lib.Server', () => {
     expect.assertions(5);
 
     // Perform a simple request to get a 400 response with invalid param
-    const response = await request(server.app).post('/test')
+    const response = await request(server.app).post('/test').send({})
       .expect('Content-Type', /json/)
       .expect(400);
 

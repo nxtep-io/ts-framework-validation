@@ -1,6 +1,6 @@
 {
   "name": "ts-framework-validation",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A minimalistic web framework for TS",
   "author": "Luis Brito <luis@devnup.com>",
   "license": "MIT",
@@ -22,8 +22,9 @@
   },
   "dependencies": {
     "@types/semver": "^5.4.0",
+    "phone": "^2.0.0",
     "rimraf": "^2.6.2",
-    "ts-framework": "nxtep-io/ts-framework",
+    "ts-framework": "nxtep-io/ts-framework#v2",
     "typescript": "^2.5.3"
   },
   "devDependencies": {
