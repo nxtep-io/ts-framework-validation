@@ -1,7 +1,8 @@
 import Params from './params';
+import * as ParamComposition from './ParamComposition';
 import { ParamValidator, ParamValidatorMap } from './ParamValidator';
 import { default as ParamValidatorMiddleware } from './ParamValidatorMiddleware';
-export { ParamValidator, ParamValidatorMiddleware, Params };
+export { ParamValidator, ParamValidatorMiddleware, ParamComposition, Params };
 export declare type ValidatorInputMap = {
     [key: string]: any;
 };
@@ -23,6 +24,12 @@ export default class Validate {
      * @param validator The ParamValidator instance
      */
     static middleware(param: string, validator: ParamValidator): (req: any, res: any, next: any) => Promise<void>;
+    /**
+     * Gets an composition builder for generating an Express middleware.
+     */
+    static compose(params: {
+        [label: string]: ParamValidator;
+    }): (req: any, res: any, next: any) => Promise<void>;
     /**
      * Runs a map of params validations.
      *

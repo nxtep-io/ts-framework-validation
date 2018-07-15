@@ -2,7 +2,7 @@ import * as request from 'supertest';
 import Validate, { Params } from '../lib';
 import Server, { Controller, Post } from 'ts-framework';
 
-describe('lib.Server', () => {
+describe('lib.middleware', () => {
 
   let server;
 

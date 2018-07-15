@@ -12,9 +12,9 @@
       "cwd": "${workspaceRoot}",
       "sourceMaps": true,
       "args": [
+        "-i",
         "--config",
-        "jest.json",
-        "-i"
+        "jest.json"
       ],
       "env": {
         "NODE_ENV": "test",

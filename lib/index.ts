@@ -1,9 +1,10 @@
 import { HttpError, HttpCode } from 'ts-framework';
 import Params from './params';
+import * as ParamComposition from './ParamComposition';
 import { ParamValidator, ParamValidatorMap } from './ParamValidator';
 import { default as ParamValidatorMiddleware } from './ParamValidatorMiddleware';
 
-export { ParamValidator, ParamValidatorMiddleware, Params };
+export { ParamValidator, ParamValidatorMiddleware, ParamComposition, Params };
 
 export type ValidatorInputMap = { [key: string]: any };
 export type ValidatorResultMap = { [key: string]: boolean };
@@ -28,6 +29,13 @@ export default class Validate {
    */
   public static middleware(param: string, validator: ParamValidator) {
     return async (req, res, next) => new ParamValidatorMiddleware(param, validator).middleware(req, res, next);
+  }
+
+  /**
+   * Gets an composition builder for generating an Express middleware.
+   */
+  public static compose(params: { [label: string]: ParamValidator }) {
+    return ParamComposition.wrapGroup(params);
   }
 
   /**
