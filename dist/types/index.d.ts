@@ -23,7 +23,7 @@ export default class Validate {
      * @param param The param name to be validated
      * @param validator The ParamValidator instance
      */
-    static middleware(param: string, validator: ParamValidator): (req: any, res: any, next: any) => Promise<void>;
+    static middleware(param: string, validator: ParamValidator): (req: any, res: any, next: any) => Promise<any>;
     /**
      * Gets an composition builder for generating an Express middleware.
      */

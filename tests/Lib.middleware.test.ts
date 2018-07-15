@@ -3,7 +3,6 @@ import Validate, { Params } from '../lib';
 import Server, { Controller, Post } from 'ts-framework';
 
 describe('lib.middleware', () => {
-
   let server;
 
   @Controller('/')

@@ -26,14 +26,25 @@ export default class ParamValidatorMiddleware {
    * @param next The express callback to the middleware chain
    */
   async middleware(req, res, next) {
+    const isTSFramework = (res.error && typeof res.error === typeof (() => true));
+
     try {
-      if (!await this.filter(req.param(this.param))) {
+      const result = await this.filter(req.param(this.param));
+      if (!result && isTSFramework) {
         res.error(new HttpError(this.options.message(this.param), HttpCode.Client.BAD_REQUEST));
+      } else if (!result) {
+        next(new HttpError(this.options.message(this.param), HttpCode.Client.BAD_REQUEST));
       } else {
         next();
       }
     } catch (exception) {
-      res.error(HttpCode.Client.BAD_REQUEST, exception);
+      if (isTSFramework) {
+        // Send error using TS Framework abstraction layer
+        return res.error(HttpCode.Client.BAD_REQUEST, exception);
+      } else {
+        // Send error using regular Express methods
+        return next(new HttpError(this.options.message(this.param), HttpCode.Client.BAD_REQUEST));
+      }
     }
   }
 

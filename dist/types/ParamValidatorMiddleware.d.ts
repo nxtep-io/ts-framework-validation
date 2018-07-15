@@ -20,5 +20,5 @@ export default class ParamValidatorMiddleware {
      * @param res The express response
      * @param next The express callback to the middleware chain
      */
-    middleware(req: any, res: any, next: any): Promise<void>;
+    middleware(req: any, res: any, next: any): Promise<any>;
 }

@@ -22,6 +22,10 @@ const validateParams = async (obj: any, param: string, filter: ParamValidator) =
     if (result) {
       return true;
     }
+
+    throw new HttpError(`Invalid field: ${param}`, HttpCode.Client.BAD_REQUEST, {
+      param, value,
+    });
   } catch (exception) {
     if (exception instanceof HttpError) {
       throw exception;
@@ -31,10 +35,6 @@ const validateParams = async (obj: any, param: string, filter: ParamValidator) =
       exception: exception.message,
     });
   }
-
-  throw new HttpError(`Invalid field: ${param}`, HttpCode.Client.BAD_REQUEST, {
-    param, value,
-  });
 };
 
 /**
