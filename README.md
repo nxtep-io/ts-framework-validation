@@ -69,7 +69,7 @@ export default class HelloWorldController {
 
 ### Param composition
 
-For more complex structures you can use the Param Composition layer:
+For more complex structures you can use the Param Composition layer using dot notation.
 
 ```typescript
 import Validate, { Params } from 'ts-framework-validation';
@@ -83,10 +83,8 @@ export default class HelloWorldController {
       name: Params.isValidName,
       email: Params.isValidEmail,
       password: isValidPassword,
-      phone: Validate.compose({
-        code: (code: string = '') => code.length === 2,
-        number: (number: string = '') => (number.length > 8 && number.length < 10),
-      }),
+      'phone.code': (code: string = '') => code.length === 2,
+      'phone.number': (number: string = '') => (number.length > 8 && number.length < 10),
     })
   ])
   public static helloWorld(req, res) {
