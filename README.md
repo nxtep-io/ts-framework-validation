@@ -83,8 +83,8 @@ export default class HelloWorldController {
       name: Params.isValidName,
       email: Params.isValidEmail,
       password: isValidPassword,
-      'phone.code': (code: string = '') => code.length === 2,
-      'phone.number': (number: string = '') => (number.length > 7 && number.length < 10),
+      'phone.code': async (code: string = '') => code.length === 2,
+      'phone.number': async (number: string = '') => (number.length > 7 && number.length < 10),
     })
   ])
   public static helloWorld(req, res) {
