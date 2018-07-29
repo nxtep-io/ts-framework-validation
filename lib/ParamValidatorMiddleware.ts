@@ -19,7 +19,7 @@ export default class ParamValidatorMiddleware {
   }
 
   /**
-   * Returns the Express midleware for a Para˜`m validator.
+   * Returns the Express midleware for a Param validator.
    * 
    * @param req The express request
    * @param res The express response
@@ -38,9 +38,10 @@ export default class ParamValidatorMiddleware {
         next();
       }
     } catch (exception) {
+      console.log(exception);
       if (isTSFramework) {
         // Send error using TS Framework abstraction layer
-        return res.error(HttpCode.Client.BAD_REQUEST, exception);
+        throw new HttpError(this.options.message(this.param), HttpCode.Client.BAD_REQUEST);
       } else {
         // Send error using regular Express methods
         return next(new HttpError(this.options.message(this.param), HttpCode.Client.BAD_REQUEST));
