@@ -13,6 +13,8 @@ This plugin extends the Server for handling safe params validation.
 You can start using the built-in validators.
 
 ```typescript
+import Validate, { Params } from 'ts-framework-validation';
+
 @Controller('/hello')
 export default class HelloWorldController {
 
@@ -48,20 +50,51 @@ export default async (password: string = ''): Promise<Boolean> => {
 
 And then use in your controller.
 ```typescript
+import Validate, { Params } from 'ts-framework-validation';
 import isValidPassword from './isValidPassword';
 
-@Controller('/hello')
+@Controller('/users')
 export default class HelloWorldController {
 
-  @Get('/world', [ 
-    Validate.middleware('name', isValidPassword),
+  @Post('/signup', [ 
+    Validate.middleware('name', Params.isValidName),
+    Validate.middleware('email', Params.isValidEmail),
+    Validate.middleware('password', isValidPassword),
   ])
   public static helloWorld(req, res) {
-    return return res.success({ message: `Valid password!` });
+    return return res.success({ message: `Valid user information!` });
   }
-
 }
 ```
+
+### Param composition
+
+For more complex structures you can use the Param Composition layer:
+
+```typescript
+import Validate, { Params } from 'ts-framework-validation';
+import isValidPassword from './isValidPassword';
+
+@Controller('/users')
+export default class HelloWorldController {
+
+  @Post('/signup', [ 
+    Validate.compose({
+      name: Params.isValidName,
+      email: Params.isValidEmail,
+      password: isValidPassword,
+      phone: Validate.compose({
+        code: (code: string = '') => code.length === 2,
+        number: (number: string = '') => (number.length > 8 && number.length < 10),
+      }),
+    })
+  ])
+  public static helloWorld(req, res) {
+    return return res.success({ message: `Valid user information!` });
+  }
+}
+```
+
 
 
 ## License
