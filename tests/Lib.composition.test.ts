@@ -57,7 +57,7 @@ describe('lib.composition', () => {
         last: Params.isValidName,
       }),
     ])
-    public static async serial(req, res, next) {
+    public static async parallel(req, res, next) {
       return res.success({ test: 'ok' });
     }
 
