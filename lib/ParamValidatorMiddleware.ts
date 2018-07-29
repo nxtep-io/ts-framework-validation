@@ -19,7 +19,7 @@ export default class ParamValidatorMiddleware {
   }
 
   /**
-   * Returns the Express midleware for a Para˜`m validator.
+   * Returns the Express midleware for a Param validator.
    * 
    * @param req The express request
    * @param res The express response
