@@ -26,15 +26,19 @@ describe('lib.middleware', () => {
     // Initialize a simple server
     server = new Server({
       port: 3333,
-      cors: true,
-      controllers: { TestController },
+      security: {
+        cors: true,
+      },
+      router: {
+        controllers: { TestController },
+      },
     });
 
     await server.listen();
   });
 
   afterEach(async () => {
-    await server.stop();
+    await server.close();
     server = undefined;
   });
 

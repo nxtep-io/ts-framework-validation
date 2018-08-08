@@ -24,7 +24,7 @@ describe('lib.composition', () => {
     }
 
     @Post('/test/serial-exception', [
-      Validate.serialCompose({ 
+      Validate.serialCompose({
         first: causeException,
       }),
     ])
@@ -33,7 +33,7 @@ describe('lib.composition', () => {
     }
 
     @Post('/test/parallel-exception', [
-      Validate.parallelCompose({ 
+      Validate.parallelCompose({
         first: causeException,
       }),
     ])
@@ -65,7 +65,7 @@ describe('lib.composition', () => {
       Validate.oneOfCompose({
         first: Params.isValidName,
         last: Params.isValidName,
-      },                    'Invalid message'),
+      }, 'Invalid message'),
     ])
     public static async oneOf(req, res, next) {
       return res.success({ test: 'ok' });
@@ -76,15 +76,19 @@ describe('lib.composition', () => {
     // Initialize a simple server
     server = new Server({
       port: 3333,
-      cors: true,
-      controllers: { TestController },
+      security: {
+        cors: true,
+      },
+      router: {
+        controllers: { TestController },
+      },
     });
 
     await server.listen();
   });
 
   afterEach(async () => {
-    await server.stop();
+    await server.close();
     server = undefined;
   });
 
