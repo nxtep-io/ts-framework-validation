@@ -4,11 +4,11 @@ import isValidPassword from './isValidPassword';
 import isValidPhoneNumber from './isValidPhoneNumber';
 export { isValidId, isValidEmail, isValidPassword, isValidPhoneNumber };
 declare const _default: {
-    isValidId: (id: string) => Promise<Boolean>;
-    isValidName: (name?: string) => Promise<Boolean>;
-    isValidEmail: (email?: string) => Promise<Boolean>;
-    isValidUsername: (username?: string) => Promise<Boolean>;
-    isValidPassword: (password?: string) => Promise<Boolean>;
-    isValidPhoneNumber: (phoneNumber?: string) => Promise<Boolean>;
+    isValidId: (id: string) => Promise<boolean>;
+    isValidName: (name?: string) => Promise<boolean>;
+    isValidEmail: (email?: string) => Promise<boolean>;
+    isValidUsername: (username?: string) => Promise<boolean>;
+    isValidPassword: (password?: string) => Promise<boolean>;
+    isValidPhoneNumber: (phoneNumber?: string) => Promise<boolean>;
 };
 export default _default;

@@ -8,7 +8,7 @@ const checkForHexRegExp = new RegExp('^[0-9a-fA-F]{24}$');
  * 
  * @param {String} id The param to be validated
  */
-export default async (id: string): Promise<Boolean> => {
+export default async (id: string): Promise<boolean> => {
   const str = id && id.toString ? id.toString() : undefined;
   if (str && checkForHexRegExp.test(str)) {
     return true;

@@ -6,7 +6,7 @@ import * as Phone from 'phone';
  * 
  * @param {String} phoneNumber The param to be validated
  */
-export default async (phoneNumber: string = ''): Promise<Boolean> => {
+export default async (phoneNumber: string = ''): Promise<boolean> => {
   if (phoneNumber && phoneNumber.length && Phone(phoneNumber).length) {
     return true;
   }

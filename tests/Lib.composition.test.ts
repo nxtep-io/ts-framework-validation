@@ -6,7 +6,7 @@ describe('lib.composition', () => {
 
   let server;
 
-  const causeException = async (data: any): Promise<Boolean> => {
+  const causeException = async (data: any): Promise<boolean> => {
     throw new Error('Our custom exception');
     return true;
   };

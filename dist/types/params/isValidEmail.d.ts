@@ -1,2 +1,2 @@
-declare const _default: (email?: string) => Promise<Boolean>;
+declare const _default: (email?: string) => Promise<boolean>;
 export default _default;
