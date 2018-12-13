@@ -1,6 +1,6 @@
 {
   "name": "ts-framework-validation",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "A minimalistic web framework for TS",
   "author": "Luis Brito <luis@devnup.com>",
   "license": "MIT",
