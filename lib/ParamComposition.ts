@@ -4,7 +4,7 @@ import { HttpCode, HttpError, BaseRequest } from 'ts-framework';
 /**
  * The type definition for a param validator instance.
  */
-export type ParamValidator = ((data: any) => Promise<Boolean>);
+export type ParamValidator = ((data: any) => Promise<boolean>);
 
 /**
  * Run a single async param validation using dot notation.

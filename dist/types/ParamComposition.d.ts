@@ -1,7 +1,7 @@
 /**
  * The type definition for a param validator instance.
  */
-export declare type ParamValidator = ((data: any) => Promise<Boolean>);
+export declare type ParamValidator = ((data: any) => Promise<boolean>);
 /**
  * Wraps a list of params into a single Express middleware and validate them synchronously.
  * Will throw in the first invalid value.
@@ -10,7 +10,7 @@ export declare type ParamValidator = ((data: any) => Promise<Boolean>);
  * @param {ParamValidator} filter The filter instance to be wrapped
  */
 export declare const syncWrapGroup: (params: {
-    [label: string]: (data: any) => Promise<Boolean>;
+    [label: string]: (data: any) => Promise<boolean>;
 }) => (req: any, res: any, next: any) => Promise<void>;
 /**
  * Wraps a series of params into a single Express middleware and validate them asynchronously.
@@ -20,8 +20,8 @@ export declare const syncWrapGroup: (params: {
  * @param {ParamValidator} filter The filter instance to be wrapped
  */
 export declare const asyncWrapGroup: (params: {
-    [label: string]: (data: any) => Promise<Boolean>;
+    [label: string]: (data: any) => Promise<boolean>;
 }) => (req: any, res: any, next: any) => Promise<void>;
 export declare const wrapOrGroup: (params: {
-    [label: string]: (data: any) => Promise<Boolean>;
+    [label: string]: (data: any) => Promise<boolean>;
 }, message: string) => (req: any, res: any, next: any) => Promise<void>;

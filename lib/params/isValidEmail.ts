@@ -11,7 +11,7 @@ const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
  * 
  * @param {String} email The param to be validated
  */
-export default async (email: string = ''): Promise<Boolean> => {
+export default async (email: string = ''): Promise<boolean> => {
   if (email && email.length && email.match(EMAIL_REGEX)) {
     return true;
   }

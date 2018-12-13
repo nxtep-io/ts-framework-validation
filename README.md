@@ -39,7 +39,7 @@ const PASSWORD_MAX = 36;
  * 
  * @param {String} password The param to be validated
  */
-export default async (password: string = ''): Promise<Boolean> => {
+export default async (password: string = ''): Promise<boolean> => {
   if (password && password.length >= PASSWORD_MIN && password.length <= PASSWORD_MAX) {
     return true;
   }
