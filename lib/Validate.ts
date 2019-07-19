@@ -10,7 +10,7 @@ export default class Validate {
 
   /**
    * Runs a single params validation.
-   * 
+   *
    * @param param The value to be validated
    * @param validator The ParamValidator instance
    */
@@ -20,7 +20,7 @@ export default class Validate {
 
   /**
    * Gets an Express middleware for a param validation.
-   * 
+   *
    * @param param The param name to be validated
    * @param validator The ParamValidator instance
    */
@@ -29,7 +29,7 @@ export default class Validate {
   }
 
   /**
-   * Gets a parallel composition builder for generating an Express middleware.  
+   * Gets a parallel composition builder for generating an Express middleware.
    * The middleware will run all validator in parallel and throw a list of invalid fields.
    */
   public static parallelCompose(params: { [label: string]: ParamValidator }) {
@@ -37,7 +37,7 @@ export default class Validate {
   }
 
   /**
-   * Gets a serial composition builder for generating an Express middleware.  
+   * Gets a serial composition builder for generating an Express middleware.
    * The middleware will run all validator in series and throw the first invalid field.
    */
   public static serialCompose(params: { [label: string]: ParamValidator }) {
@@ -45,7 +45,7 @@ export default class Validate {
   }
 
   /**
-   * Gets an one of composition builder for generating an Express middleware.  
+   * Gets an one of composition builder for generating an Express middleware.
    * The middleware will run all validator in parallel and throw the invalidMessage if all validations fail.
    */
   public static oneOfCompose(params: { [label: string]: ParamValidator }, invalidMessage: string) {
@@ -54,7 +54,7 @@ export default class Validate {
 
   /**
    * Runs a map of params validations.
-   * 
+   *
    * @param param The value to be validated
    * @param validator The ParamValidator instance
    */
@@ -71,7 +71,7 @@ export default class Validate {
 
   /**
    * Runs and enforces all params validations.
-   * 
+   *
    * @param param The value to be validated
    * @param validator The ParamValidator instance
    */

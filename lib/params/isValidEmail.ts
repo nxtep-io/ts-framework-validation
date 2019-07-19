@@ -1,6 +1,6 @@
 /**
  * TODO: Move to a config file.
- * 
+ *
  * Reference: http://emailregex.com
  */
 /* tslint:disable-next-line:max-line-length */
@@ -8,7 +8,7 @@ const EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
 
 /**
  * Checks if param is a valid user email.
- * 
+ *
  * @param {String} email The param to be validated
  */
 export default async (email: string = ''): Promise<boolean> => {

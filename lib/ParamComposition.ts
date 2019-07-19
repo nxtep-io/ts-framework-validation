@@ -23,7 +23,7 @@ const validateParam = async (obj: any, param: string, filter: ParamValidator, th
 
     if (result) { return true; }
 
-    if (throwOnInvalid) { 
+    if (throwOnInvalid) {
       throw new HttpError(invalidMessage, HttpCode.Client.BAD_REQUEST, { param, value });
     }
 
@@ -31,12 +31,12 @@ const validateParam = async (obj: any, param: string, filter: ParamValidator, th
   } catch (exception) {
     if (exception instanceof HttpError) { throw exception; }
 
-    if (throwOnInvalid) { 
-      throw new HttpError(invalidMessage, HttpCode.Client.BAD_REQUEST, { 
+    if (throwOnInvalid) {
+      throw new HttpError(invalidMessage, HttpCode.Client.BAD_REQUEST, {
         param, value, exception: exception.message,
       });
     }
-    
+
     return `${invalidMessage} - Exception: ${exception.message}`;
   }
 };

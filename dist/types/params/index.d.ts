@@ -11,4 +11,7 @@ declare const _default: {
     isValidPassword: (password?: string) => Promise<boolean>;
     isValidPhoneNumber: (phoneNumber?: string) => Promise<boolean>;
 };
+/**
+ * Exports the available param validators as middlewares
+ */
 export default _default;

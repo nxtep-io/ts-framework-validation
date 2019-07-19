@@ -5,5 +5,5 @@ export { default as ParamValidatorMiddleware } from './ParamValidatorMiddleware'
 import * as ParamComposition from './ParamComposition';
 export { ParamComposition };
 
-import Validate from './Validate'; 
+import Validate from './Validate';
 export default Validate;

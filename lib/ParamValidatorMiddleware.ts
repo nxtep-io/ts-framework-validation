@@ -7,7 +7,7 @@ export interface ParamValidatorMiddlewareOptions {
 
 /**
  * Wraps a simple param validator into an Express middleware.
- * 
+ *
  * @param {String} param The param name to be fetch using `req.param(name)`
  * @param {ParamValidator} filter The filter instance to be wrapped
  */
@@ -20,7 +20,7 @@ export default class ParamValidatorMiddleware {
 
   /**
    * Returns the Express midleware for a Param validator.
-   * 
+   *
    * @param req The express request
    * @param res The express response
    * @param next The express callback to the middleware chain

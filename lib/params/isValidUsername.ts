@@ -7,7 +7,7 @@ const USER_USERNAME_REGEX = /^[a-zA-Z0-9\+\-\_]+$/;
 
 /**
  * Checks if param is a valid user username.
- * 
+ *
  * @param {String} username The param to be validated
  */
 export default async (username: string = ''): Promise<boolean> => {
