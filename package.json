@@ -23,7 +23,7 @@
   "dependencies": {
     "@types/dot-prop": "^4.2.0",
     "@types/semver": "^5.4.0",
-    "dot-prop": "^4.2.0",
+    "dot-prop": "^5.1.1",
     "phone": "^2.0.0",
     "rimraf": "^2.6.2",
     "ts-framework": "nxtep-io/ts-framework#2.6.0",
